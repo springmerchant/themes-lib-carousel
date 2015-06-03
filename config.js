@@ -21,6 +21,7 @@ System.config({
     "core-js": "npm:core-js@0.9.13",
     "imagesloaded": "npm:imagesloaded@3.1.8",
     "jquery": "github:components/jquery@2.1.4",
+    "jquery-trend": "github:PixelUnion/jquery.trend@0.1.0",
     "github:jspm/nodelibs-process@0.1.1": {
       "process": "npm:process@0.10.1"
     },
