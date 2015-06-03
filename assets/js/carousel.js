@@ -3,7 +3,6 @@ import imagesLoaded from 'imagesloaded';
 import trend from 'jquery-trend';
 
 export default class Carousel {
-
   constructor(options) {
     super();
     this.$el = $(options.el);
