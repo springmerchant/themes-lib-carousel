@@ -1,3 +1,42 @@
 # BigCommerce Carousel Module
 
 make the big images change.
+
+### Usage
+
+```
+  new Carousel({
+    el: $('.carousel');
+    carouselDelay: 4000
+  });
+```
+
+### options are self-explanatory
+
+`el`
+`carouselDelay`
+
+
+### some sample markup
+
+```
+<section class="carousel">
+  {{#each carousel}}
+    <figure class="carousel-item {{#if @first}}active{{/if}}">
+      <a class="carousel-item-image" href="{{{url}}}">
+        <img src="{{image}}" alt="{{{alt_text}}}" />
+      </a>
+      <figcaption class="carousel-item-info">
+        <h2>{{heading}}</h2>
+        <p>{{text}}</p>
+        <a class="button" href="{{{url}}}">{{button_text}}</a>
+      </figcaption>
+    </figure>
+  {{/each}}
+
+  <div class="carousel-navigation">
+    <span class="carousel-navigation-item previous">&larr;</span>
+    <span class="carousel-navigation-item next">&rarr;</span>
+  </div>
+</section>
+```
