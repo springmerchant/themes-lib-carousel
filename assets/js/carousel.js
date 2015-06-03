@@ -9,7 +9,7 @@ export default class Carousel {
     this.$el = $(options.el);
 
     this.options = $.extend({
-      carouselDelay: 4000
+      delay: 4000
     }, options);
 
     this.$item = this.$el.find('.carousel-item');

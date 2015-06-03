@@ -13,8 +13,7 @@ make the big images change.
 
 ### options are self-explanatory
 
-`el`
-`carouselDelay`
+`el` and `delay`.
 
 
 ### some sample markup
