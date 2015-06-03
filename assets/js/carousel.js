@@ -85,7 +85,7 @@ export default class Carousel {
   }
 
   startLoop() {
-    let delay = this.options.carouselDelay * 1000;
+    let delay = this.options.delay;
 
     this.autoplay = setInterval(() => {
       this.nextSlide();
