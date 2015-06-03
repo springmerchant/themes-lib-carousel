@@ -7,7 +7,7 @@ Make the big images change.
 ```
   new Carousel({
     el: $('.carousel');
-    carouselDelay: 4000
+    delay: 4000
   });
 ```
 
