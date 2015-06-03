@@ -45,9 +45,9 @@ export default class Carousel {
       let carouselHeight = 0;
 
       for (let i of this.$item.length) {
-        let $itemHeight = this.$item.eq(i).height();
+        let itemHeight = this.$item.eq(i).height();
 
-        carouselHeight = Math.max(carouselHeight, $itemHeight);
+        carouselHeight = Math.max(carouselHeight, itemHeight);
       }
 
       this.$el.height(carouselHeight);
