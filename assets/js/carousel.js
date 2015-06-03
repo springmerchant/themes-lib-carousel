@@ -20,7 +20,7 @@ export default class Carousel {
 
   bindEvents() {
     this.$el.on('click', this.$el.find('.carousel-navigation-item'), (e) => {
-      if ($(e.target).hasClass('next')) {
+      if ($(e.target).hasClass('carousel-next')) {
         this.nextSlide();
       } else {
         this.previousSlide();

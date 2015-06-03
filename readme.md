@@ -34,8 +34,8 @@ Make the big images change.
   {{/each}}
 
   <div class="carousel-navigation">
-    <span class="carousel-navigation-item previous">&larr;</span>
-    <span class="carousel-navigation-item next">&rarr;</span>
+    <span class="carousel-navigation-item carousel-previous">&larr;</span>
+    <span class="carousel-navigation-item carousel-next">&rarr;</span>
   </div>
 </section>
 ```
