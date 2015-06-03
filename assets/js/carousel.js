@@ -12,7 +12,7 @@ export default class Carousel {
             carouselDelay: 4000
         }, options);
 
-        this.carouselItem = this.$el.find('.carousel-item');
+        this.$item = this.$el.find('.carousel-item');
 
         this.bindEvents();
         this.setCarouselHeight();
@@ -45,10 +45,10 @@ export default class Carousel {
         this.$el.imagesLoaded(() => {
             let carouselHeight = 0;
 
-            for (let i of this.carouselItem.length) {
-                let carouselItemHeight = this.carouselItem.eq(i).height();
+            for (let i of this.$item.length) {
+                let $itemHeight = this.$item.eq(i).height();
 
-                carouselHeight = Math.max(carouselHeight, carouselItemHeight);
+                carouselHeight = Math.max(carouselHeight, $itemHeight);
             }
 
             this.$el.height(carouselHeight);
@@ -68,10 +68,10 @@ export default class Carousel {
         let fallback = (type === 'next') ? 'first' : 'last';
 
         let activeSlide = $('.carousel-item.active');
-        let nextSlide = (activeSlide[type]().hasClass('carousel-item')) ? activeSlide[type]() : this.carouselItem[fallback]();
+        let nextSlide = (activeSlide[type]().hasClass('carousel-item')) ? activeSlide[type]() : this.$item[fallback]();
 
         if (!nextSlide.length) {
-            nextSlide = this.carouselItem[fallback]();
+            nextSlide = this.$item[fallback]();
         }
 
         nextSlide.addClass(type);
