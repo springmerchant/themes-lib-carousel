@@ -2,13 +2,23 @@
 
 Make the big images change.
 
+### Installation
+
+```
+jspm install --save bitbucket:pixelunion/bc-carousel
+```
+
+
 ### Usage
 
 ```
-  new Carousel({
-    el: $('.carousel');
-    delay: 4000
-  });
+import $ from 'jquery';
+import Carousel from './components/carousel';
+
+new Carousel({
+  el: $('.carousel');
+  delay: 4000
+});
 ```
 
 ### options are self-explanatory
