@@ -1,4 +1,8 @@
 {
+  "name": "carousel-bc",
+  "description": "BigCommerce Carousel Module",
+  "version": "0.0.1",
+  "private": true,
   "dependencies": {
     "jquery": "github:components/jquery@^2.1.4"
   },
