@@ -80,7 +80,7 @@ export default class Carousel {
 
     nextSlide.one('trend', function() {
       nextSlide.removeClass(`${type} ${direction}`).addClass('active');
-      activeSlide.removeClass(`active ${direction}`].join(' '));
+      activeSlide.removeClass(`active ${direction}`);
     });
   }
 
