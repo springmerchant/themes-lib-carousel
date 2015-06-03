@@ -1,6 +1,6 @@
 # BigCommerce Carousel Module
 
-make the big images change.
+Make the big images change.
 
 ### Usage
 
