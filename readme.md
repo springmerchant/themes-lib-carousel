@@ -1,19 +1,18 @@
-# BigCommerce Carousel Module
+# Bigcommerce Carousel Module
 
 Make the big images change.
 
 ### Installation
 
 ```
-jspm install --save bitbucket:pixelunion/bc-carousel
+jspm install --save bc-carousel=bitbucket:pixelunion/bc-carousel
 ```
-
 
 ### Usage
 
 ```
 import $ from 'jquery';
-import Carousel from './components/carousel';
+import Carousel from 'bc-carousel';
 
 new Carousel({
   el: $('.carousel');
