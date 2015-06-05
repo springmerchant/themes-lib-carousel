@@ -20,11 +20,11 @@ new Carousel({
 });
 ```
 
-### options are self-explanatory
+### Options are self-explanatory
 
 `el` and `delay`.
 
-### some sample markup
+### Some sample markup
 
 ```
 <section class="carousel">
@@ -48,7 +48,7 @@ new Carousel({
 </section>
 ```
 
-### further development
+### Further Development
 
 For debugging or improvements you can run a standalone test version of the carousel using a very basic node server:
 
