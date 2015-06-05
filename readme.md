@@ -24,7 +24,6 @@ new Carousel({
 
 `el` and `delay`.
 
-
 ### some sample markup
 
 ```
@@ -48,3 +47,14 @@ new Carousel({
   </div>
 </section>
 ```
+
+### further development
+
+For debugging or improvements you can run a standalone test version of the carousel using a very basic node server:
+
+```
+$ npm install
+$ jspm install
+$ nodemon server.js
+```
+This will allow you to make changes to the JS and HTML. To re-compile the scss you'll need to run `node build.js` from a separate terminal window. After each change.

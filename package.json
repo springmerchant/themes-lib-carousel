@@ -1,18 +1,21 @@
 {
   "name": "bc-carousel",
-  "description": "Bigcommerce Carousel Module",
   "version": "0.0.2",
   "private": true,
-  "main": "assets/js/carousel",
+  "description": "Bigcommerce Carousel Module",
+  "main": "server.js",
   "devDependencies": {
-    "babel": "npm:babel-core@^5.1.13",
-    "babel-runtime": "npm:babel-runtime@^5.1.13",
-    "core-js": "npm:core-js@^0.9.4"
+    "finalhandler": "^0.3.3",
+    "serve-static": "^1.8.1",
+    "nodemon": "^1.3.7",
+    "node-sass": "^3.1.2"
   },
+  "license": "MIT",
   "jspm": {
-    "main": "js/carousel",
+    "main": "dist",
     "directories": {
-      "lib": "assets"
+      "baseURL": "public",
+      "lib": "public/dist"
     },
     "dependencies": {
       "imagesloaded": "npm:imagesloaded@^3.1.8",
@@ -20,9 +23,9 @@
       "jquery-trend": "npm:jquery-trend@^0.1.0"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.1.13",
-      "babel-runtime": "npm:babel-runtime@^5.1.13",
-      "core-js": "npm:core-js@^0.9.4"
+      "babel": "npm:babel-core@4.7.16",
+      "babel-runtime": "npm:babel-runtime@4.7.16",
+      "core-js": "npm:core-js@^0.8.4"
     }
   }
 }
