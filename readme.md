@@ -55,6 +55,6 @@ For debugging or improvements you can run a standalone test version of the carou
 ```
 $ npm install
 $ jspm install
-$ nodemon server.js
+$ npm run serve
 ```
-This will allow you to make changes to the JS and HTML. To re-compile the scss you'll need to run `node build.js` from a separate terminal window. After each change.
+This will allow you to make changes to the JS and HTML. To re-compile the scss you'll need to run `npm run build` from a separate terminal window after each change.
