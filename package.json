@@ -3,7 +3,6 @@
   "version": "0.0.3",
   "private": true,
   "description": "Bigcommerce Carousel Module",
-  "main": "server.js",
   "devDependencies": {
     "finalhandler": "^0.3.3",
     "serve-static": "^1.8.1",
@@ -16,10 +15,10 @@
     "build": "node ./build.js"
   },
   "jspm": {
-    "main": "dist",
     "directories": {
       "lib": "dist"
     },
+    "main": "js/carousel",
     "dependencies": {
       "imagesloaded": "npm:imagesloaded@^3.1.8",
       "jquery": "github:components/jquery@^2.1.4",
