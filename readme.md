@@ -22,7 +22,9 @@ new Carousel({
 
 ### Options are self-explanatory
 
-`el` and `delay`.
+`el`: the jQuery object of our carousel container.
+`delay`: transition delay, in milliseconds.
+`pagination`: whether or not to include pagination dots (defaults to false).
 
 ### Some sample markup
 

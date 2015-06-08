@@ -10,18 +10,20 @@ export default class Carousel {
     this.currentIndex = 0;
 
     this.options = $.extend({
-      delay: 4000
+      delay: 4000,
+      pagination: false
     }, options);
 
     this.$items = this.$el.find('.carousel-item');
 
+    this.initPagination();
     this.bindEvents();
     this.setCarouselHeight();
     this.startLoop();
   }
 
   bindEvents() {
-    this.$el.on('click', this.$el.find('.carousel-navigation-item'), (e) => {
+    this.$el.on('click', '.carousel-navigation-item', (e) => {
       if ($(e.target).hasClass('carousel-next')) {
         this.nextSlide();
       } else {
@@ -56,38 +58,66 @@ export default class Carousel {
     });
   }
 
+  initPagination() {
+    // skip if it's not activated
+    if (!this.options.pagination) {
+      return;
+    }
+
+    const $dotsContainer  = $('<div></div>').addClass('carousel-pagination');
+
+    for (let i of this.$items.length) {
+      let $dot = $(`<a>${i}</a>`).addClass('carousel-pagination-item').attr('data-slide', i);
+      $dot.bind('click', (e) => {
+        e.preventDefault();
+        this.changeSlide(i);
+      });
+      $dotsContainer.append($dot);
+    }
+
+    this.$el.append($dotsContainer);
+    this.updatePagination(this.currentIndex);
+  }
+
+  updatePagination(index) {
+    this.$el.children('.carousel-pagination-item').removeClass('active').filter(`[data-slide=${index}]`).addClass('active');
+  }
+
   previousSlide() {
     // to the end if we're on the first slide, otherwise decrement
-    let newIndex = (this.currentIndex === 0) ? this.$items.length - 1 : this.currentIndex - 1;
+    const newIndex = (this.currentIndex === 0) ? this.$items.length - 1 : this.currentIndex - 1;
 
-    this.showNewSlide(newIndex);
+    this.changeSlide(newIndex);
   }
 
   nextSlide() {
     // back to zero if we're on the last slide, otherwise increment
-    let newIndex = (this.currentIndex + 1 === this.$items.length) ? 0 : this.currentIndex + 1;
+    const newIndex = (this.currentIndex + 1 === this.$items.length) ? 0 : this.currentIndex + 1;
 
-    this.showNewSlide(newIndex);
+    this.changeSlide(newIndex);
   }
 
-  showNewSlide(newIndex) {
+  changeSlide(targetIndex) {
+    if (this.currentIndex === targetIndex) {
+      return;
+    }
 
-    // determine if we're going left or right
-    let direction = (newIndex > this.currentIndex) ? 'left' : 'right';
+    const direction = (targetIndex > this.currentIndex) ? 'left' : 'right';
 
-    let $activeSlide = $('.carousel-item.active');
-    let $nextSlide = $(this.$items[newIndex]);
+    let $activeSlide = $(this.$items[this.currentIndex]);
+    let $nextSlide = $(this.$items[targetIndex]);
 
     $nextSlide[0].offsetWidth; // force reflow
     $activeSlide.addClass(direction);
     $nextSlide.addClass(direction);
 
-    $nextSlide.one('trend', function() {
-      $nextSlide.removeClass(direction).addClass('active');
-      $activeSlide.removeClass(`active ${direction}`);
-    });
+    this.updatePagination(targetIndex);
 
-    this.currentIndex = newIndex;
+    $nextSlide.one('trend', () => {
+      $nextSlide.removeClass(direction).addClass('active');
+      $activeSlide.removeClass('active').removeClass(direction);
+      this.currentIndex = targetIndex;
+    });
   }
 
   startLoop() {

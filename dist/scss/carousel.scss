@@ -49,3 +49,15 @@
     right: 0;
   }
 }
+
+.carousel-pagination {
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+
+  .carousel-pagination-item {
+    &.active {
+      cursor: default;
+    }
+  }
+}

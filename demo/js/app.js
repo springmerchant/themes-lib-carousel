@@ -4,6 +4,7 @@ import Carousel from '../../dist/js/carousel';
 $(function(){
   new Carousel({
     el: $('.carousel'),
-    delay: 4000
+    delay: 6000,
+    pagination: true
   });
 })
