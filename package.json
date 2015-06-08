@@ -12,10 +12,9 @@
   },
   "license": "MIT",
   "jspm": {
-    "main": "public/dist",
+    "main": "dist",
     "directories": {
-      "baseURL": "public",
-      "lib": "public/dist"
+      "lib": "dist"
     },
     "dependencies": {
       "imagesloaded": "npm:imagesloaded@^3.1.8",

@@ -2,7 +2,7 @@
 
 var fs = require('fs');
 var sass = require('node-sass');
-var opts = { file: './public/dist/scss/carousel.scss' };
+var opts = { file: './dist/scss/carousel.scss' };
 
 sass.render(opts, function(error, result) {
   if (error) {
@@ -10,5 +10,5 @@ sass.render(opts, function(error, result) {
     return;
   }
   // Output to stylesheet
-  fs.writeFileSync('./public/demo/style.css', result.css.toString());
+  fs.writeFileSync('./demo/style.css', result.css.toString());
 });

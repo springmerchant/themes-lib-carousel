@@ -4,7 +4,7 @@ var finalhandler = require('finalhandler')
 
 var port = process.env.PORT || 3000
 
-var serve = serveStatic('public', {'index': ['index.html']})
+var serve = serveStatic('./', {'index': ['index.html']})
 
 var server = http.createServer(function(req, res) {
   var done = finalhandler(req, res)
