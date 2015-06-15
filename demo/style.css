@@ -38,5 +38,7 @@
   position: absolute;
   bottom: 2%;
   left: 2%; }
-  .carousel-pagination .carousel-pagination-item.active {
-    cursor: default; }
+  .carousel-pagination .carousel-pagination-item {
+    cursor: pointer; }
+    .carousel-pagination .carousel-pagination-item.active {
+      cursor: default; }

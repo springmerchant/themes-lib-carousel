@@ -54,6 +54,7 @@
   left: 2%;
 
   .carousel-pagination-item {
+    cursor: pointer;
     &.active {
       cursor: default;
     }

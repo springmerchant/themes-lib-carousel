@@ -80,7 +80,7 @@ export default class Carousel {
   }
 
   updatePagination(index) {
-    this.$el.children('.carousel-pagination-item').removeClass('active').filter(`[data-slide=${index}]`).addClass('active');
+    this.$el.find('.carousel-pagination-item').removeClass('active').filter(`[data-slide=${index}]`).addClass('active');
   }
 
   previousSlide() {
