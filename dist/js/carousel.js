@@ -11,7 +11,7 @@ export default class Carousel {
 
     this.options = $.extend({
       delay: 4000,
-      pagination: false
+      pagination: false,
     }, options);
 
     this.$items = this.$el.find('.carousel-item');
@@ -126,7 +126,7 @@ export default class Carousel {
       })
       .revealer('hide');
 
-    this.$items.eq(targetIndex)
+    const $nextSlide = this.$items.eq(targetIndex)
       .one('revealer-animating', (e) => {
         $(e.currentTarget).addClass(direction);
       })
@@ -134,6 +134,17 @@ export default class Carousel {
         $(e.currentTarget).removeClass(direction);
       })
       .revealer('show');
+
+    // Trigger events
+    this.$el.trigger('carousel-change', {
+      index: this.currentIndex,
+    });
+
+    $nextSlide.one('revealer-show', () => {
+      this.$el.trigger('carousel-changed', {
+        index: targetIndex,
+      });
+    });
 
     // Update state
     this._updatePagination(targetIndex);
