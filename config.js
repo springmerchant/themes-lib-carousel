@@ -20,6 +20,7 @@ System.config({
     "core-js": "npm:core-js@0.9.14",
     "imagesloaded": "npm:imagesloaded@3.1.8",
     "jquery": "github:components/jquery@2.1.4",
+    "jquery-revealer": "github:pixelunion/jquery.revealer@2.0.0",
     "jquery-trend": "npm:jquery-trend@0.1.0",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -160,9 +161,6 @@ System.config({
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:babel-runtime@4.7.16": {
-      "process": "github:jspm/nodelibs-process@0.1.1"
-    },
-    "npm:babel-runtime@5.5.3": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:browserify-aes@1.0.1": {

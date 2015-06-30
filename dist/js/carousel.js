@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import imagesLoaded from 'imagesloaded';
 import trend from 'jquery-trend';
+import revealer from 'jquery-revealer';
 
 export default class Carousel {
   constructor(options) {
@@ -20,6 +21,9 @@ export default class Carousel {
     this.bindEvents();
     this.setCarouselHeight();
     this.startLoop();
+
+    // Force show first slide
+    this.$items.first().revealer('show', true);
   }
 
   bindEvents() {
@@ -102,22 +106,16 @@ export default class Carousel {
       return;
     }
 
-    const direction = (targetIndex > this.currentIndex) ? 'left' : 'right';
+    // Change slides
+    const $currentSlide = $(this.$items[this.currentIndex]);
+    $currentSlide.revealer('hide');
 
-    let $activeSlide = $(this.$items[this.currentIndex]);
-    let $nextSlide = $(this.$items[targetIndex]);
+    const $nextSlide = $(this.$items[targetIndex]);
+    $nextSlide.revealer('show');
 
-    $nextSlide[0].offsetWidth; // force reflow
-    $activeSlide.addClass(direction);
-    $nextSlide.addClass(direction);
-
+    // Update state
     this.updatePagination(targetIndex);
-
-    $nextSlide.one('trend', () => {
-      $nextSlide.removeClass(direction).addClass('active');
-      $activeSlide.removeClass('active').removeClass(direction);
-      this.currentIndex = targetIndex;
-    });
+    this.currentIndex = targetIndex;
   }
 
   startLoop() {
