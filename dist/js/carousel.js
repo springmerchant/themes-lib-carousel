@@ -5,7 +5,6 @@ import revealer from 'jquery-revealer';
 
 export default class Carousel {
   constructor(options) {
-    super();
     this.$el = $(options.el);
 
     this.currentIndex = 0;
@@ -17,16 +16,16 @@ export default class Carousel {
 
     this.$items = this.$el.find('.carousel-item');
 
-    this.initPagination();
-    this.bindEvents();
-    this.setCarouselHeight();
+    this._initPagination();
+    this._bindEvents();
+    this._setCarouselHeight();
     this.startLoop();
 
     // Force show first slide
     this.$items.first().revealer('show', true);
   }
 
-  bindEvents() {
+  _bindEvents() {
     this.$el.on('click', '.carousel-navigation-item', (e) => {
       if ($(e.target).hasClass('carousel-next')) {
         this.nextSlide();
@@ -48,13 +47,12 @@ export default class Carousel {
     });
   }
 
-  setCarouselHeight() {
+  _setCarouselHeight() {
     this.$el.imagesLoaded(() => {
       let carouselHeight = 0;
 
       for (let i of this.$items.length) {
-        let itemHeight = this.$items.eq(i).height();
-
+        const itemHeight = this.$items.eq(i).height();
         carouselHeight = Math.max(carouselHeight, itemHeight);
       }
 
@@ -62,7 +60,7 @@ export default class Carousel {
     });
   }
 
-  initPagination() {
+  _initPagination() {
     // skip if it's not activated
     if (!this.options.pagination) {
       return;
@@ -71,19 +69,21 @@ export default class Carousel {
     const $dotsContainer  = $('<div></div>').addClass('carousel-pagination');
 
     for (let i of this.$items.length) {
-      let $dot = $(`<a>${i}</a>`).addClass('carousel-pagination-item').attr('data-slide', i);
-      $dot.bind('click', (e) => {
-        e.preventDefault();
-        this.changeSlide(i);
-      });
-      $dotsContainer.append($dot);
+      $(`<a>${i}</a>`)
+        .addClass('carousel-pagination-item')
+        .attr('data-slide', i)
+        .on('click', (e) => {
+          e.preventDefault();
+          this.changeSlide(i);
+        })
+        .appendTo($dotsContainer);
     }
 
     this.$el.append($dotsContainer);
-    this.updatePagination(this.currentIndex);
+    this._updatePagination(this.currentIndex);
   }
 
-  updatePagination(index) {
+  _updatePagination(index) {
     this.$el.find('.carousel-pagination-item').removeClass('active').filter(`[data-slide=${index}]`).addClass('active');
   }
 
@@ -136,7 +136,7 @@ export default class Carousel {
       .revealer('show');
 
     // Update state
-    this.updatePagination(targetIndex);
+    this._updatePagination(targetIndex);
     this.currentIndex = targetIndex;
   }
 
