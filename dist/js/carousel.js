@@ -106,12 +106,28 @@ export default class Carousel {
       return;
     }
 
-    // Change slides
-    const $currentSlide = $(this.$items[this.currentIndex]);
-    $currentSlide.revealer('hide');
+    const direction = (targetIndex > this.currentIndex)
+      ? 'animating-left'
+      : 'animating-right';
 
-    const $nextSlide = $(this.$items[targetIndex]);
-    $nextSlide.revealer('show');
+    // Change slides
+    this.$items.eq(this.currentIndex)
+      .one('revealer-animating', (e) => {
+        $(e.currentTarget).addClass(direction);
+      })
+      .one('revealer-hide', (e) => {
+        $(e.currentTarget).removeClass(direction);
+      })
+      .revealer('hide');
+
+    this.$items.eq(targetIndex)
+      .one('revealer-animating', (e) => {
+        $(e.currentTarget).addClass(direction);
+      })
+      .one('revealer-show', (e) => {
+        $(e.currentTarget).removeClass(direction);
+      })
+      .revealer('show');
 
     // Update state
     this.updatePagination(targetIndex);
