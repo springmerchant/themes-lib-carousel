@@ -8,7 +8,41 @@
         left: 5%;
         top: 5%;
       }
+
       .carousel-pagination-item.active { color: #fff; }
+
+      .carousel-item.animating {
+        display: block;
+        transition: all 1s ease-out;
+      }
+
+      .carousel-item.animating-left {
+        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+      }
+
+      .carousel-item.animating-left.animating-out {
+        transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+      }
+
+      .carousel-item.animating-right {
+        transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+      }
+
+      .carousel-item.animating-right.animating-out {
+        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+      }
+
+      .carousel-item.visible,
+      .carousel-item.visible.animating-left,
+      .carousel-item.visible.animating-right {
+        display: block;
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+      }
     </style>
   </head>
   <body>

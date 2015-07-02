@@ -10,39 +10,8 @@
   margin: 0;
   display: none;
 
-  &.animating {
+  &.visible {
     display: block;
-    transition: all 1s ease-out;
-  }
-
-  &.animating-left {
-    transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-
-    &.animating-out {
-      transform: translateX(-100%);
-      -webkit-transform: translateX(-100%);
-    }
-  }
-
-  &.animating-right {
-    transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-
-    &.animating-out {
-      transform: translateX(100%);
-      -webkit-transform: translateX(100%);
-    }
-  }
-
-  &.visible, {
-    &,
-    &.animating-left,
-    &.animating-right {
-      display: block;
-      transform: translateX(0);
-      -webkit-transform: translateX(0);
-    }
   }
 }
 

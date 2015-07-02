@@ -91,24 +91,30 @@ export default class Carousel {
     // to the end if we're on the first slide, otherwise decrement
     const newIndex = (this.currentIndex === 0) ? this.$items.length - 1 : this.currentIndex - 1;
 
-    this.changeSlide(newIndex);
+    this.changeSlide(newIndex, 'right');
   }
 
   nextSlide() {
     // back to zero if we're on the last slide, otherwise increment
     const newIndex = (this.currentIndex + 1 === this.$items.length) ? 0 : this.currentIndex + 1;
 
-    this.changeSlide(newIndex);
+    this.changeSlide(newIndex, 'left');
   }
 
-  changeSlide(targetIndex) {
+  changeSlide(targetIndex, animationDirection = 'auto') {
     if (this.currentIndex === targetIndex) {
       return;
     }
 
-    const direction = (targetIndex > this.currentIndex)
-      ? 'animating-left'
-      : 'animating-right';
+    let direction = null;
+
+    if (animationDirection === 'auto') {
+      direction = (targetIndex > this.currentIndex)
+        ? 'animating-left'
+        : 'animating-right';
+    } else {
+      direction = `animating-${animationDirection}`;
+    }
 
     // Change slides
     this.$items.eq(this.currentIndex)
