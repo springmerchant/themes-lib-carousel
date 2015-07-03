@@ -102,14 +102,23 @@ export default class Carousel {
   }
 
   changeSlide(targetIndex, animationDirection = 'auto') {
-    if (this.currentIndex === targetIndex) {
+    const currentIndex = this.currentIndex;
+
+    if (currentIndex === targetIndex) {
       return;
     }
 
+    // Trigger change event
+    this.$el.trigger('carousel-change', {
+      from: currentIndex,
+      to: targetIndex,
+    });
+
+    // Calculate animation direction
     let direction = null;
 
     if (animationDirection === 'auto') {
-      direction = (targetIndex > this.currentIndex)
+      direction = (targetIndex > currentIndex)
         ? 'animating-left'
         : 'animating-right';
     } else {
@@ -117,7 +126,7 @@ export default class Carousel {
     }
 
     // Change slides
-    this.$items.eq(this.currentIndex)
+    this.$items.eq(currentIndex)
       .one('revealer-animating', (e) => {
         $(e.currentTarget).addClass(direction);
       })
@@ -126,25 +135,20 @@ export default class Carousel {
       })
       .revealer('hide');
 
-    const $nextSlide = this.$items.eq(targetIndex)
+    this.$items.eq(targetIndex)
       .one('revealer-animating', (e) => {
         $(e.currentTarget).addClass(direction);
       })
       .one('revealer-show', (e) => {
         $(e.currentTarget).removeClass(direction);
+
+        // Trigger changed event
+        this.$el.trigger('carousel-changed', {
+          from: currentIndex,
+          to: targetIndex,
+        });
       })
       .revealer('show');
-
-    // Trigger events
-    this.$el.trigger('carousel-change', {
-      index: this.currentIndex,
-    });
-
-    $nextSlide.one('revealer-show', () => {
-      this.$el.trigger('carousel-changed', {
-        index: targetIndex,
-      });
-    });
 
     // Update state
     this._updatePagination(targetIndex);
