@@ -43,7 +43,7 @@ export default class Carousel {
     });
 
     $(window).on('resize', () => {
-      this.setCarouselHeight();
+      this._setCarouselHeight();
     });
   }
 
