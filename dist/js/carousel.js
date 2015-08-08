@@ -19,6 +19,7 @@ export default class Carousel {
     this._initPagination();
     this._bindEvents();
     this._setCarouselHeight();
+    this._displayNavigation();
     this.startLoop();
 
     // Force show first slide
@@ -58,6 +59,10 @@ export default class Carousel {
 
       this.$el.height(carouselHeight);
     });
+  }
+
+  _displayNavigation() {
+    this.$el.find('.carousel-navigation').addClass('visible');
   }
 
   _initPagination() {
