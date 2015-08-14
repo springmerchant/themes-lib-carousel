@@ -48,7 +48,9 @@
   margin-top: 10px;
   color: #fff;
   background: #333;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none; }
   .button.disabled {
     cursor: default;
     opacity: .5; }
