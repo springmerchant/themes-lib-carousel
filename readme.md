@@ -26,6 +26,27 @@ new Carousel({
 `delay`: transition delay, in milliseconds.
 `pagination`: whether or not to include pagination dots (defaults to false).
 
+### Events
+
+You can listen to events on the `el` container.
+
+`carousel-resize`: the carousel is about to be resized.
+`carousel-resized`: the carousel has just been resized, typically after a window resize.
+`carousel-change`: the carousel is about to change slides. `from` and `to` indexes are passed into the event context.
+`carousel-changed`: the carousel has just changed slides. `from` and `to` indexes are passed into the event context.
+
+```
+const $carousel = $('.carousel');
+
+const carousel = new Carousel({
+  el: $carousel,
+});
+
+$carousel.on('carousel-change', (e, context) => {
+  console.log(`carousel is changing from ${context.from} to ${context.to}`);
+});
+```
+
 ### Some sample markup
 
 ```

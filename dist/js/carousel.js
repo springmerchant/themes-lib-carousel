@@ -49,6 +49,8 @@ export default class Carousel {
   }
 
   _setCarouselHeight() {
+    this.$el.trigger('carousel-resize');
+
     this.$el.imagesLoaded(() => {
       let carouselHeight = 0;
 
@@ -58,6 +60,7 @@ export default class Carousel {
       }
 
       this.$el.height(carouselHeight);
+      this.$el.trigger('carousel-resized');
     });
   }
 
