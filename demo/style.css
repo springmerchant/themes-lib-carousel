@@ -41,3 +41,14 @@
     cursor: pointer; }
     .carousel-pagination .carousel-pagination-item.active {
       cursor: default; }
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  color: #fff;
+  background: #333;
+  cursor: pointer; }
+  .button.disabled {
+    cursor: default;
+    opacity: .5; }

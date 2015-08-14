@@ -24,7 +24,16 @@ new Carousel({
 
 `el`: the jQuery object of our carousel container.
 `delay`: transition delay, in milliseconds.
-`pagination`: whether or not to include pagination dots (defaults to false).
+`pagination`: whether or not to include pagination dots (defaults to `false`).
+`autoplay`: whether or not to start playing right away (defaults to `true`).
+
+### Methods
+
+`play`: start slideshow looping.
+`pause`: stop slideshow loopting.
+`nextSlide`: show the next slide.
+`previousSlide`: show the previous slide.
+`changeSlide`: (`targetIndex, animationDirection = 'auto'`) show the slide at `targetIndex`, optionally specifying the animation class.
 
 ### Events
 
@@ -34,6 +43,8 @@ You can listen to events on the `el` container.
 `carousel-resized`: the carousel has just been resized, typically after a window resize.
 `carousel-change`: the carousel is about to change slides. `from` and `to` indexes are passed into the event context.
 `carousel-changed`: the carousel has just changed slides. `from` and `to` indexes are passed into the event context.
+`carousel-play`: the carousel has started looping.
+`carousel-pause`: the carousel has stopped looping.
 
 ```
 const $carousel = $('.carousel');

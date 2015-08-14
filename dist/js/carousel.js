@@ -8,10 +8,12 @@ export default class Carousel {
     this.$el = $(options.el);
 
     this.currentIndex = 0;
+    this.isPlaying = false;
 
     this.options = $.extend({
       delay: 4000,
       pagination: false,
+      autoplay: true,
     }, options);
 
     this.$items = this.$el.find('.carousel-item');
@@ -20,10 +22,31 @@ export default class Carousel {
     this._bindEvents();
     this._setCarouselHeight();
     this._displayNavigation();
-    this.startLoop();
+
+    if (this.options.autoplay) {
+      this.play();
+    }
 
     // Force show first slide
     this.$items.first().revealer('show', true);
+  }
+
+  play() {
+    if (this.isPlaying) {
+      return;
+    }
+
+    this.isPlaying = true;
+    this._startLoop();
+  }
+
+  pause() {
+    if (!this.isPlaying) {
+      return;
+    }
+
+    this.isPlaying = false;
+    this._pauseLoop();
   }
 
   _bindEvents() {
@@ -36,11 +59,15 @@ export default class Carousel {
     });
 
     this.$el.on('mouseenter', () => {
-      this.pauseLoop();
+      if (this.isPlaying) {
+        this._pauseLoop();
+      }
     });
 
     this.$el.on('mouseleave', () => {
-      this.startLoop();
+      if (this.isPlaying) {
+        this._startLoop();
+      }
     });
 
     $(window).on('resize', () => {
@@ -163,15 +190,18 @@ export default class Carousel {
     this.currentIndex = targetIndex;
   }
 
-  startLoop() {
+  _startLoop() {
     const delay = this.options.delay;
 
     this.autoplay = setInterval(() => {
       this.nextSlide();
     }, delay);
+
+    this.$el.trigger('carousel-play');
   }
 
-  pauseLoop() {
+  _pauseLoop() {
     clearInterval(this.autoplay);
+    this.$el.trigger('carousel-pause');
   }
 }
