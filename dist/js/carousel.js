@@ -149,7 +149,7 @@ export default class Carousel {
     this.$el.imagesLoaded(() => {
       let carouselHeight = 0;
 
-      for (let i of this.$items.length) {
+      for (let i = 0; i < this.$items.length; i++) {
         const itemHeight = this.$items.eq(i).height();
         carouselHeight = Math.max(carouselHeight, itemHeight);
       }
@@ -179,7 +179,7 @@ export default class Carousel {
 
     const $dotsContainer  = $('<div></div>').addClass('carousel-pagination');
 
-    for (let i of this.$items.length) {
+    for (let i = 0; i < this.$items.length; i++) {
       $(`<a>${i}</a>`)
         .addClass('carousel-pagination-item')
         .attr('data-slide', i)
@@ -274,7 +274,7 @@ export default class Carousel {
    * This is needed to clean up after when the user rapidly changes slides.
    */
   _clearAnimationClasses() {
-    for (let i of this.$items.length) {
+    for (let i = 0; i < this.$items.length; i++) {
       const el = this.$items[i];
 
       const classes = el.className.split(' ').filter((c) => {
