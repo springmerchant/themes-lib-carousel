@@ -26,6 +26,7 @@ new Carousel({
 `delay`: transition delay, in milliseconds.
 `pagination`: whether or not to include pagination dots (defaults to `false`).
 `autoplay`: whether or not to start playing right away (defaults to `true`).
+`dotText`: wheher or not to set an explicit text, or use integers (defaults to `false`).
 
 ### Methods
 

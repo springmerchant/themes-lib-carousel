@@ -181,7 +181,7 @@ export default class Carousel {
     const $dotsContainer  = $('<div></div>').addClass('carousel-pagination');
 
     for (let i = 0; i < this.$items.length; i++) {
-      let dotText = (this.options.dotText ? this.options.dotText : i);
+      const dotText = (this.options.dotText ? this.options.dotText : i);
       $(`<a>${dotText}</a>`)
         .addClass('carousel-pagination-item')
         .attr('data-slide', i)
