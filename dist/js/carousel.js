@@ -17,6 +17,7 @@ export default class Carousel {
       delay: 4000,
       pagination: false,
       autoplay: true,
+      dotText: false
     }, options);
 
     this.$items = this.$el.find('.carousel-item');
@@ -180,7 +181,8 @@ export default class Carousel {
     const $dotsContainer  = $('<div></div>').addClass('carousel-pagination');
 
     for (let i = 0; i < this.$items.length; i++) {
-      $(`<a>${i}</a>`)
+      let dotText = (this.options.dotText ? this.options.dotText : i);
+      $(`<a>${dotText}</a>`)
         .addClass('carousel-pagination-item')
         .attr('data-slide', i)
         .on('click', (e) => {
