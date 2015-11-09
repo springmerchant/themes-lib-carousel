@@ -123,6 +123,12 @@ export default class Carousel {
       }
     });
 
+    this.$el.on('click', '.carousel-pagination-item', (e) => {
+      e.preventDefault();
+      const index = parseInt($(e.currentTarget).data('slide'), 10);
+      this.changeSlide(index);
+    });
+
     this.$el.on('mouseenter', () => {
       if (this.isPlaying) {
         this._pauseLoop();
