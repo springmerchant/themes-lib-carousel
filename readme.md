@@ -24,9 +24,7 @@ new Carousel({
 
 `el`: the jQuery object of our carousel container.
 `delay`: transition delay, in milliseconds.
-`pagination`: whether or not to include pagination dots (defaults to `false`).
 `autoplay`: whether or not to start playing right away (defaults to `true`).
-`dotText`: wheher or not to set an explicit text, or to use integers (defaults to `false`).
 
 ### Methods
 
@@ -75,6 +73,14 @@ $carousel.on('carousel-change', (e, context) => {
       </figcaption>
     </figure>
   {{/each}}
+
+  <div class="carousel-pagination">
+    {{#for 0 ../slide_count}}
+      {{#if $index '!==' ../../slide_count}}
+        <span class="carousel-pagination-item {{#if $index '===' 0}}active{{/if}}" data-slide="{{$index}}">{{$index}}</span>
+      {{/if}}
+    {{/for}}
+  </div>
 
   <div class="carousel-navigation">
     <span class="carousel-navigation-item carousel-previous">&larr;</span>
