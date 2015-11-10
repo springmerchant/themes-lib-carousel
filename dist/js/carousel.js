@@ -15,11 +15,14 @@ export default class Carousel {
 
     this.options = $.extend({
       delay: 4000,
+      pagination: false,
       autoplay: true,
+      dotText: false,
     }, options);
 
     this.$items = this.$el.find('.carousel-item');
 
+    this._initPagination();
     this._bindEvents();
     this._setCarouselHeight();
     this._displayNavigation();
@@ -120,7 +123,7 @@ export default class Carousel {
       }
     });
 
-    this.$el.on('click', '.carousel-pagination-item', (e) => {
+    this.$el.on('click', '[data-carousel-pagination-item]', (e) => {
       e.preventDefault();
       const index = parseInt($(e.currentTarget).data('slide'), 10);
       this.changeSlide(index);
@@ -169,6 +172,34 @@ export default class Carousel {
    */
   _displayNavigation() {
     this.$el.find('.carousel-navigation').addClass('visible');
+  }
+
+  /**
+   * @private
+   * Create pagination elements.
+   */
+  _initPagination() {
+    // skip if it's not activated
+    if (!this.options.pagination) {
+      return;
+    }
+
+    const $dotsContainer  = $('<div></div>').addClass('carousel-pagination');
+
+    for (let i = 0; i < this.$items.length; i++) {
+      const dotText = (this.options.dotText ? this.options.dotText : i);
+      $(`<a>${dotText}</a>`)
+        .addClass('carousel-pagination-item')
+        .attr('data-slide', i)
+        .on('click', (e) => {
+          e.preventDefault();
+          this.changeSlide(i);
+        })
+        .appendTo($dotsContainer);
+    }
+
+    this.$el.append($dotsContainer);
+    this._updatePagination(this.currentIndex);
   }
 
   /**
