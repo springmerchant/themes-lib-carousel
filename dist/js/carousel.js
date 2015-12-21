@@ -18,14 +18,18 @@ export default class Carousel {
       pagination: false,
       autoplay: true,
       dotText: false,
+      setHeight: true,
     }, options);
 
     this.$items = this.$el.find('.carousel-item');
 
     this._initPagination();
     this._bindEvents();
-    this._setCarouselHeight();
     this._displayNavigation();
+
+    if (this.options.setHeight) {
+      this._setCarouselHeight();
+    }
 
     if (this.options.autoplay) {
       this.play();
@@ -142,7 +146,9 @@ export default class Carousel {
     });
 
     $(window).on('resize', () => {
-      this._setCarouselHeight();
+      if (this.options.setHeight) {
+        this._setCarouselHeight();
+      }
     });
   }
 
