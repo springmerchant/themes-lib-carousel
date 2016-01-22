@@ -10,9 +10,9 @@ $(function(){
 
   const carousel = new Carousel({
     el: $el,
-    delay: 3000,
+    delay: 4000,
     pagination: true,
-    autoplay: false,
+    autoplay: true,
   });
 
   // Event examples

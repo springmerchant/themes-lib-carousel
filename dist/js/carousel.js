@@ -12,9 +12,10 @@ export default class Carousel {
     this.isPlaying = false;
     this.isChanging = false;
     this.animationDirection;
+    this.autoplay;
 
     this.options = $.extend({
-      delay: 4000,
+      delay: 3000,
       pagination: false,
       autoplay: true,
       dotText: false,
@@ -67,6 +68,22 @@ export default class Carousel {
    * Select the previous slide.
    */
   previousSlide() {
+    this._resetInterval();
+    this._previousSlide();
+  }
+
+  /**
+   * Select the next slide.
+   */
+  nextSlide() {
+    this._resetInterval();
+    this._nextSlide();
+  }
+
+  /**
+   * Select the previous slide.
+   */
+  _previousSlide() {
     const newIndex = (this.targetIndex === 0)
       ? this.$items.length - 1
       : this.targetIndex - 1;
@@ -76,7 +93,7 @@ export default class Carousel {
   /**
    * Select the next slide.
    */
-  nextSlide() {
+  _nextSlide() {
     const newIndex = (this.targetIndex + 1 === this.$items.length)
       ? 0
       : this.targetIndex + 1;
@@ -301,14 +318,23 @@ export default class Carousel {
 
   /**
    * @private
+   * Clear and restart carousel timer.
+   */
+  _resetInterval() {
+    clearInterval(this.autoplay);
+    this.autoplay = setInterval(() => {
+      this.nextSlide();
+    }, this.options.delay);
+  }
+
+  /**
+   * @private
    * Start slideshow timer.
    */
   _startLoop() {
-    const delay = this.options.delay;
-
     this.autoplay = setInterval(() => {
       this.nextSlide();
-    }, delay);
+    }, this.options.delay);
 
     this.$el.trigger('carousel-play');
   }
