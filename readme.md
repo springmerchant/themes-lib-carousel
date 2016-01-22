@@ -2,7 +2,7 @@
 
 Make the big images change.
 
-*Caveat:* Right now the functionality of the pause-on-mouseover isn't jiving so great with in-browser pause & play buttons. We don't thing anyone is using pause & play buttons, but just so you're aware
+*Caveat:* Right now the functionality of the pause-on-mouseover and pause-on-blur isn't jiving so great with in-browser pause & play buttons. We don't thing anyone is using pause & play buttons, but just so you're aware
 
 ### Installation
 
