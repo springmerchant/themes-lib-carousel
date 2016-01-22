@@ -20,17 +20,23 @@ export default class Carousel {
       autoplay: true,
       dotText: false,
       setHeight: true,
+      pauseOnWindowBlur: false,
     }, options);
 
     this.$items = this.$el.find('.carousel-item');
 
     this._initPagination();
     this._bindEvents();
-    this._displayNavigation();
 
     if (this.options.setHeight) {
       this._setCarouselHeight();
     }
+
+    if (this.options.pauseOnWindowBlur) {
+      this._bindBlurFocus();
+    }
+
+    this._displayNavigation();
 
     if (this.options.autoplay) {
       this.play();
@@ -68,7 +74,9 @@ export default class Carousel {
    * Select the previous slide.
    */
   previousSlide() {
-    this._resetInterval();
+    if (this.isPlaying) {
+      this._resetInterval();
+    }
     this._previousSlide();
   }
 
@@ -76,7 +84,9 @@ export default class Carousel {
    * Select the next slide.
    */
   nextSlide() {
-    this._resetInterval();
+    if (this.isPlaying) {
+      this._resetInterval();
+    }
     this._nextSlide();
   }
 
@@ -167,6 +177,15 @@ export default class Carousel {
         this._setCarouselHeight();
       }
     });
+  }
+
+  /**
+   * @private
+   * Pause and Play carousel on window blur & focus
+   */
+  _bindBlurFocus() {
+    window.onblur = this.pause.bind(this);
+    window.onfocus = this.play.bind(this);
   }
 
   /**

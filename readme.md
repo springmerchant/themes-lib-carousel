@@ -28,6 +28,8 @@ new Carousel({
 `autoplay`: whether or not to start playing right away (defaults to `true`).
 `dotText`: wheher or not to set an explicit text, or to use integers (defaults to `false`).
 `setHeight`: sets height of carousel to that of the tallest slide (defaults to `true`).
+`pauseOnWindowBlur`: pauses the slider when clicking away from the current window/tab (defaults to `false`).
+
 
 ### Methods
 

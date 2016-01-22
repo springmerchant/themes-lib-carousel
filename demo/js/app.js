@@ -13,6 +13,7 @@ $(function(){
     delay: 4000,
     pagination: true,
     autoplay: true,
+    pauseOnWindowBlur: true,
   });
 
   // Event examples
