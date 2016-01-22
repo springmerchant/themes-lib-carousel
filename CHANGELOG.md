@@ -9,3 +9,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 #### Changed
  - public next() and previous() methods now reset the interval timer
+ - ensure carousel pause/play logic functions as expected on mouseover/out

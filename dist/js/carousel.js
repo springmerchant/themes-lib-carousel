@@ -162,13 +162,13 @@ export default class Carousel {
 
     this.$el.on('mouseenter', () => {
       if (this.isPlaying) {
-        this._pauseLoop();
+        this.pause();
       }
     });
 
     this.$el.on('mouseleave', () => {
-      if (this.isPlaying) {
-        this._startLoop();
+      if (this.options.autoplay) {
+        this.play();
       }
     });
 
@@ -351,6 +351,7 @@ export default class Carousel {
    * Start slideshow timer.
    */
   _startLoop() {
+    clearInterval(this.autoplay);
     this.autoplay = setInterval(() => {
       this.nextSlide();
     }, this.options.delay);
