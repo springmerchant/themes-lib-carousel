@@ -1,13 +1,16 @@
 {
   "name": "bc-carousel",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "private": true,
   "description": "Bigcommerce Carousel Module",
+  "main": "dist/js/carousel.js",
   "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-runtime": "^6.9.2",
     "finalhandler": "^0.3.3",
-    "serve-static": "^1.8.1",
+    "node-sass": "^3.1.2",
     "nodemon": "^1.3.7",
-    "node-sass": "^3.1.2"
+    "serve-static": "^1.8.1"
   },
   "license": "MIT",
   "scripts": {
@@ -30,5 +33,11 @@
       "babel-runtime": "npm:babel-runtime@4.7.16",
       "core-js": "npm:core-js@^0.8.4"
     }
+  },
+  "dependencies": {
+    "imagesloaded": "^4.1.0",
+    "jquery": "^3.1.0",
+    "jquery-revealer": "github:pixelunion/jquery.revealer",
+    "jquery-trend": "^0.1.0"
   }
 }
