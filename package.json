@@ -18,7 +18,7 @@
     "build": "node ./build.js"
   },
   "jspm": {
-    "main": "js/carousel",
+    "main": "assets/js/carousel",
     "directories": {
       "lib": "dist"
     },
