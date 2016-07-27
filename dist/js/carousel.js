@@ -30,6 +30,8 @@ var Carousel = function () {
   function Carousel(options) {
     _classCallCheck(this, Carousel);
 
+    _imagesloaded2.default.makeJQueryPlugin(_jquery2.default);
+
     this.$el = (0, _jquery2.default)(options.el);
 
     this.currentIndex = 0;

@@ -5,6 +5,8 @@ import revealer from 'jquery-revealer';
 
 export default class Carousel {
   constructor(options) {
+    imagesLoaded.makeJQueryPlugin($);
+
     this.$el = $(options.el);
 
     this.currentIndex = 0;
