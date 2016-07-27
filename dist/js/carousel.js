@@ -30,6 +30,9 @@ var Carousel = function () {
   function Carousel(options) {
     _classCallCheck(this, Carousel);
 
+    // NPM install seems to not install 'imagesloaded' as a
+    // dependency for bc-carousel, so we have to make use of
+    //this function so that everything compiles correctly
     _imagesloaded2.default.makeJQueryPlugin(_jquery2.default);
 
     this.$el = (0, _jquery2.default)(options.el);

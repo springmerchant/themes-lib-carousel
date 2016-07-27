@@ -5,6 +5,9 @@ import revealer from 'jquery-revealer';
 
 export default class Carousel {
   constructor(options) {
+    // NPM install seems to not install 'imagesloaded' as a
+    // dependency for bc-carousel, so we have to make use of
+    //this function so that everything compiles correctly
     imagesLoaded.makeJQueryPlugin($);
 
     this.$el = $(options.el);
