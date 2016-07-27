@@ -7,7 +7,8 @@ export default class Carousel {
   constructor(options) {
     // NPM install seems to not install 'imagesloaded' as a
     // dependency for bc-carousel, so we have to make use of
-    //this function so that everything compiles correctly
+    // this function so that everything compiles correctly
+    // https://github.com/desandro/imagesloaded#webpack
     imagesLoaded.makeJQueryPlugin($);
 
     this.$el = $(options.el);

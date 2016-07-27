@@ -32,7 +32,8 @@ var Carousel = function () {
 
     // NPM install seems to not install 'imagesloaded' as a
     // dependency for bc-carousel, so we have to make use of
-    //this function so that everything compiles correctly
+    // this function so that everything compiles correctly
+    // https://github.com/desandro/imagesloaded#webpack
     _imagesloaded2.default.makeJQueryPlugin(_jquery2.default);
 
     this.$el = (0, _jquery2.default)(options.el);
