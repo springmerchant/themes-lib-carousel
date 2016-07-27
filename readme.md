@@ -6,8 +6,14 @@ Make the big images change.
 
 ### Installation
 
+JSPM:
 ```
 jspm install --save bc-carousel=bitbucket:pixelunion/bc-carousel
+```
+
+NPM:
+```
+npm install --save bitbucket:/pixelunion/bc-carousel
 ```
 
 ### Usage

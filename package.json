@@ -1,6 +1,6 @@
 {
   "name": "bc-carousel",
-  "version": "2.5.0",
+  "version": "2.4.0",
   "private": true,
   "description": "Bigcommerce Carousel Module",
   "main": "dist/js/carousel",
