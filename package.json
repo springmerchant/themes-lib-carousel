@@ -22,9 +22,9 @@
     "git-add": "git add ."
   },
   "jspm": {
-    "main": "assets/js/carousel",
+    "main": "carousel.js",
     "directories": {
-      "lib": "src"
+      "lib": "src/"
     },
     "dependencies": {
       "imagesloaded": "npm:imagesloaded@^3.1.8",
