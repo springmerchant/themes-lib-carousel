@@ -7,4 +7,7 @@ gulp.task('bundle', function() {
       presets: ['es2015']
     }))
     .pipe(gulp.dest('./dist/js/'));
+    
+  gulp.src('./src/scss/*.scss')
+    .pipe(gulp.dest('./dist/scss/'));
 });

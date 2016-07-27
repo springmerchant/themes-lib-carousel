@@ -1,0 +1,67 @@
+.carousel {
+  position: relative;
+}
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  display: none;
+
+  &.visible {
+    display: block;
+  }
+}
+
+.carousel-item-image {
+  display: block;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.carousel-item-info {
+  position: absolute;
+}
+
+.carousel-navigation {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  opacity: 0;
+  
+  &.visible {
+    opacity: 1;
+  }
+}
+
+.carousel-navigation-item {
+  position: absolute;
+  cursor: pointer;
+
+  &.carousel-previous {
+    left: 0;
+  }
+
+  &.carousel-next {
+    right: 0;
+  }
+}
+
+.carousel-pagination {
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+
+  .carousel-pagination-item {
+    cursor: pointer;
+
+    &.active {
+      cursor: default;
+    }
+  }
+}
