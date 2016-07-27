@@ -1,26 +1,30 @@
 {
   "name": "bc-carousel",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "private": true,
   "description": "Bigcommerce Carousel Module",
-  "main": "dist/js/carousel.js",
+  "main": "dist/js/carousel",
   "devDependencies": {
-    "babel": "^6.5.2",
-    "babel-runtime": "^6.9.2",
+    "babel-preset-es2015": "^6.9.0",
     "finalhandler": "^0.3.3",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "node-sass": "^3.1.2",
     "nodemon": "^1.3.7",
+    "pre-commit": "^1.1.3",
     "serve-static": "^1.8.1"
   },
   "license": "MIT",
   "scripts": {
     "serve": "nodemon server.js",
-    "build": "node ./build.js"
+    "build": "node ./build.js",
+    "gulp-bundle": "gulp bundle",
+    "git-add": "git add ."
   },
   "jspm": {
     "main": "assets/js/carousel",
     "directories": {
-      "lib": "dist"
+      "lib": "src"
     },
     "dependencies": {
       "imagesloaded": "npm:imagesloaded@^3.1.8",
@@ -39,5 +43,6 @@
     "jquery": "^3.1.0",
     "jquery-revealer": "github:pixelunion/jquery.revealer",
     "jquery-trend": "^0.1.0"
-  }
+  },
+  "pre-commit": ["gulp-bundle", "git-add"]
 }
