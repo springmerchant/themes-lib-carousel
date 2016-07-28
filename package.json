@@ -19,7 +19,8 @@
     "serve": "nodemon server.js",
     "build": "node ./build.js",
     "gulp-bundle": "gulp bundle",
-    "git-add": "git add ."
+    "git-add": "git add .",
+    "postinstall": "node ./post-install.js"
   },
   "jspm": {
     "main": "carousel.js",
