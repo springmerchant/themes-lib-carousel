@@ -28,7 +28,7 @@
     },
     "dependencies": {
       "imagesloaded": "npm:imagesloaded@^3.1.8",
-      "jquery": "github:components/jquery@^2.1.4",
+      "jquery": "github:components/jquery@^3.4.1",
       "jquery-revealer": "github:pixelunion/jquery.revealer@^2.0.0",
       "jquery-trend": "npm:jquery-trend@^0.1.0"
     },
@@ -40,9 +40,12 @@
   },
   "dependencies": {
     "imagesloaded": "^4.1.0",
-    "jquery": "^3.1.0",
+    "jquery": "^3.4.1",
     "jquery-revealer": "github:pixelunion/jquery.revealer",
     "jquery-trend": "^0.1.0"
   },
-  "pre-commit": ["gulp-bundle", "git-add"]
+  "pre-commit": [
+    "gulp-bundle",
+    "git-add"
+  ]
 }

@@ -172,7 +172,7 @@ var Carousel = function () {
   }, {
     key: 'changeSlide',
     value: function changeSlide(targetIndex) {
-      var animationDirection = arguments.length <= 1 || arguments[1] === undefined ? 'auto' : arguments[1];
+      var animationDirection = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'auto';
 
       // Calculate animation direction
       var direction = null;
