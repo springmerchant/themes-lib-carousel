@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "imagesloaded": "^4.1.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.1",
     "jquery-revealer": "github:pixelunion/jquery.revealer",
     "jquery-trend": "^0.1.0"
   },
