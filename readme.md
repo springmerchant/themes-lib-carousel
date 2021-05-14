@@ -2,21 +2,16 @@
 
 Make the big images change.
 
-*Caveat:* Right now the functionality of the pause-on-mouseover and pause-on-blur isn't jiving so great with in-browser pause & play buttons. We don't thing anyone is using pause & play buttons, but just so you're aware
+*Caveat:* Right now the functionality of the pause-on-mouseover and pause-on-blur isn't jiving so great with in-browser pause & play buttons. We don't think anyone is using pause & play buttons, but just so you're aware.
 
 ### Important Note
-As of version 3.0.0, when updating using `jspm`, make sure to change SCSS references in `theme.scss` to match the new version.
+As of version 3.0.0, make sure to SCSS references in `theme.scss` to match.
 
 ### Installation
 
-JSPM:
-```
-jspm install --save bc-carousel=bitbucket:pixelunion/bc-carousel
-```
-
 NPM:
 ```
-npm install --save bitbucket:/pixelunion/bc-carousel
+npm install --save github:/pixelunion/bc-carousel
 ```
 
 ### Usage
@@ -111,7 +106,6 @@ For debugging or improvements you can run a standalone test version of the carou
 
 ```
 $ npm install
-$ jspm install
 $ npm run serve
 ```
 This will allow you to make changes to the JS and HTML. To re-compile the scss you'll need to run `npm run build` from a separate terminal window after each change.
